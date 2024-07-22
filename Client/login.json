@@ -1,0 +1,32 @@
+{
+    "admins": [
+        {
+            "jack": {
+                "password": "4321"
+            },
+            "jane": {
+                "password": "1234"
+            }
+        }
+    ],
+    "users": [
+        {
+            "ali": {
+                "accountnumber": "2222",
+                "password": "1234"
+            }
+        },
+        {
+            "yosef": {
+                "accountnumber": "2223",
+                "password": "1234"
+            }
+        },
+        {
+            "jana": {
+                "accountnumber": "2224",
+                "password": "4444"
+            }
+        }
+    ]
+}
