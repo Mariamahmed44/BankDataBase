@@ -45,11 +45,20 @@ void MainWindow::onStateChangedDevice(QAbstractSocket::SocketState socketState)
 
 void MainWindow::onReadyReadDevice(QString data)
 {
-    QString str = QString("Data Recieved => %1").arg(data);
+    // Parse the incoming data as JSON
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(data.toUtf8());
+    QJsonObject jsonObj = jsonDoc.object();
+
+    // Extract the file_data field
+    QString fileData = jsonObj["file_data"].toString();
+
+    // Display the extracted string in the UI
+    QString str = QString("Data Received => %1").arg(fileData);
     ui->lwData->addItem(str);
     ui->lwData_2->addItem(str);
     ui->lwData_3->addItem(str);
 }
+
 
 void MainWindow::on_pbConnect_clicked()
 {
@@ -73,7 +82,7 @@ void MainWindow::on_pbSend_clicked()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked()  //for login
 {
      name = ui->lineEdit->text();
      pass = ui->lineEdit_2->text();
